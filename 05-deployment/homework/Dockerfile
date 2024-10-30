@@ -20,4 +20,4 @@ COPY ["predict1.py", "model1.bin", "dv.bin", "./"]
 EXPOSE 9696
 
 # # Run the application with Gunicorn
-ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]
+ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:9696", "predict1:app"]
