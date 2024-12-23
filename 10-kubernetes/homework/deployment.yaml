@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subscription
+spec:
+  selector:
+    matchLabels:
+      app: subscription
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: subscription
+    spec:
+      containers:
+      - name: subscription
+        image: zoomcamp-model:3.11.5-hw10  # Replace with the correct image name if different
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "100m"
+          limits:
+            memory: "128Mi"  # You can set this to a value appropriate for your image
+            cpu: "500m"      # Adjust CPU limits if necessary
+        ports:
+        - containerPort: 9696  # Port to match the exposed port in the Dockerfile
